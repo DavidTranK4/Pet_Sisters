@@ -1,0 +1,48 @@
+@use '../utils' as *;
+
+/*=============================
+    34. Gallery
+===============================*/
+.gallery {
+    &__area {
+        padding: 100px 0 70px;
+    }
+    &__item {
+        position: relative;
+        margin-bottom: 30px;
+        & .popup-image {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(.5);
+            opacity: 0;
+        }
+        &:hover {
+            & .gallery__img {
+                &::before {
+                    opacity: .9;
+                }
+            }
+            & .popup-image {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+    }
+    &__img {
+        position: relative;
+        @include border-radius(10px);
+        overflow: hidden;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--tg-theme-secondary);
+            opacity: 0;
+            @include transition(.3s);
+        }
+    }
+}

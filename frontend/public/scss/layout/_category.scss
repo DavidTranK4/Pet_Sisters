@@ -1,0 +1,85 @@
+@use '../utils' as *;
+
+/*=============================
+    21. Category
+===============================*/
+.category {
+    &__area {
+        padding: 0 0 30px;
+    }
+    &__item {
+        text-align: center;
+        margin-bottom: 30px;
+        & img {
+            @include border-radius(54px);
+            margin-bottom: 17px;
+            @media #{$lg} {
+                @include border-radius(40px);
+            }
+        }
+        & .name {
+            font-size: 20px;
+            font-weight: 600;
+            font-family: var(--tg-heading-font-family);
+            display: block;
+            color: var(--tg-theme-secondary);
+            line-height: 1;
+            margin-bottom: 3px;
+            @include transition(.3s);
+        }
+        & strong {
+            display: block;
+            line-height: 1;
+            font-size: 16px;
+            color: var(--tg-body-color);
+            font-weight: 500;
+        }
+        &:hover {
+            & .name {
+                color: var(--tg-theme-primary);
+            }
+        }
+    }
+}
+
+.view-all-btn {
+    text-align: right;
+    margin-bottom: 30px;
+    @media #{$xs} {
+        text-align: left;
+    }
+    & a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        line-height: 1;
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: capitalize;
+        font-family: var(--tg-heading-font-family);
+        gap: 4px;
+        border: 1px solid #D6D6D6;
+        padding: 10px 17px 6px;
+        @include border-radius(100px);
+        color: var(--tg-body-color);
+        & i {
+            font-size: 18px;
+            font-weight: 700;
+            transform: translateY(1px);
+        }
+        &:hover {
+            background: var(--tg-theme-primary);
+            border-color: var(--tg-theme-primary);
+            color: var(--tg-color-white-default);
+        }
+    }
+}
+
+.ad-banner-img {
+    & img {
+        @include border-radius(20px);
+        @media #{$xs} {
+            @include border-radius(10px);
+        }
+    }
+}

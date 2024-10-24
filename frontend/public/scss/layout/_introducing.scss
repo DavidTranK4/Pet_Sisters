@@ -1,0 +1,97 @@
+@use '../utils' as *;
+
+/*=============================
+    24. Introducing
+===============================*/
+.introducing {
+    &__area {
+        padding: 130px 0;
+        @media #{$xs} {
+            padding: 100px 0;
+        }
+    }
+    &__img {
+        position: relative;
+        margin-left: 40px;
+        @media #{$lg} {
+            margin-left: 0;
+        }
+        @media #{$md} {
+            margin-bottom: 50px;
+        }
+        & .shape {
+            position: absolute;
+            right: 15%;
+            top: 14%;
+            @media #{$lg} {
+                right: 12%;
+                top: 10%;
+            }
+            & svg {
+                color: var(--tg-theme-primary);
+            }
+        }
+    }
+    &__content {
+        margin-left: 25px;
+        width: 80%;
+        position: relative;
+        @media #{$lg} {
+            margin-left: 0;
+            width: 100%;
+        }
+        & p {
+            margin-bottom: 23px;
+        }
+        & .shape {
+            & img {
+                position: absolute;
+                right: -50%;
+                bottom: -20%;
+                z-index: -1;
+                max-width: 219px;
+                @media #{$xl} {
+                    right: -25%;
+                    bottom: -13%;
+                }
+                @media #{$lg} {
+                    right: -3%;
+                    bottom: -18%;
+                    max-width: 160px;
+                }
+                @media #{$xs} {
+                    bottom: -15%;
+                    max-width: 125px;
+                }
+            }
+        }
+    }
+    &__list-box {
+        & .list-wrap {
+            & li {
+                font-size: 19px;
+                font-weight: 700;
+                color: var(--tg-theme-secondary);
+                @include flexbox();
+                align-items: flex-start;
+                gap: 10px;
+                line-height: 1.2;
+                margin-bottom: 15px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                & .icon {
+                    width: 30px;
+                    height: 30px;
+                    background: var(--tg-theme-primary);
+                    @include border-radius(50%);
+                    @include flexbox();
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--tg-color-white-default);
+                    flex: 0 0 auto;
+                }
+            }
+        }
+    }
+}

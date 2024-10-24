@@ -1,0 +1,147 @@
+@use '../utils' as *;
+
+/*=============================
+    35. Cta
+===============================*/
+.cta {
+    &__area {
+        background: var(--tg-theme-primary);
+        position: relative;
+        z-index: 1;
+    }
+    &__content {
+        position: relative;
+        padding: 160px 0;
+        @media #{$lg} {
+            padding: 120px 0;
+        }
+        @media #{$md} {
+            text-align: center;
+            padding: 120px 0 50px;
+        }
+        @media #{$xs} {
+            padding: 100px 0 50px;
+        }
+        & .title {
+            margin-bottom: 10px;
+            color: var(--tg-color-white-default);
+            font-size: 48px;
+            line-height: 1.1;
+            text-transform: capitalize;
+            width: 90%;
+            @media #{$xl} {
+                font-size: 45px;
+            }
+            @media #{$lg} {
+                font-size: 38px;
+                width: 100%;
+            }
+            @media #{$xs} {
+                font-size: 35px;
+            }
+            @media #{$sm} {
+                font-size: 38px;
+            }
+        }
+        & p {
+            margin-bottom: 30px;
+            color: var(--tg-color-white-default);
+            text-transform: capitalize;
+            width: 80%;
+            @media #{$xl} {
+                width: 85%;
+            }
+            @media #{$lg} {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        & .btn {
+            background: var(--tg-color-white-default);
+            color: var(--tg-theme-primary);
+            &:hover {
+                color: var(--tg-color-white-default);
+            }
+        }
+        & .shape {
+            & img {
+                position: absolute;
+                max-width: 201px;
+                left: -34%;
+                bottom: 14%;
+                z-index: -1;
+                @media #{$xxl} {
+                    max-width: 150px;
+                    left: -17%;
+                    bottom: 8%;
+                }
+                @media #{$xl} {
+                    max-width: 120px;
+                    left: -8%;
+                }
+                @media #{$lg} {
+                    max-width: 100px;
+                    left: -4%;
+                    bottom: 4%;
+                }
+                @media #{$xs} {
+                    bottom: -4%;
+                }
+            }
+        }
+    }
+    &__img {
+        &-shape {
+            & img {
+                position: absolute;
+                z-index: -1;
+                &:nth-child(1) {
+                    right: 15%;
+                    top: 15%;
+                    max-width: 120px;
+                    @media #{$xxl} {
+                        right: 10%;
+                    }
+                    @media #{$xl} {
+                        right: 8%;
+                        top: 20%;
+                        max-width: 100px;
+                    }
+                    @media #{$lg} {
+                        right: 4%;
+                        top: 18%;
+                        max-width: 90px;
+                    }
+                    @media #{$md} {
+                        right: 5%;
+                        top: 3%;
+                        max-width: 70px;
+                    }
+                    @media #{$xs} {
+                        top: 2%;
+                    }
+                }
+                &:nth-child(2) {
+                    right: 9%;
+                    bottom: 0;
+                    max-width: 930px;
+                    @media #{$xxl} {
+                        right: 0;
+                    }
+                    @media #{$xl} {
+                        max-width: 750px;
+                    }
+                    @media #{$lg} {
+                        max-width: 600px;
+                    }
+                    @media #{$md} {
+                        max-width: 750px;
+                    }
+                    @media #{$xs} {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

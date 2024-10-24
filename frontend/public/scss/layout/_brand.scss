@@ -1,0 +1,69 @@
+@use '../utils' as *;
+
+/*=============================
+    15. Brand
+===============================*/
+.brand {
+    &__area {
+        background: var(--tg-theme-secondary);
+        &-two {
+            padding-top: 80px;
+        }
+        &-three {
+            padding: 0 0 130px;
+            @media #{$xs} {
+                padding: 0 0 100px;
+            }
+        }
+        &-four {
+            padding: 90px 0;
+        }
+        &-five {
+            background: var(--tg-border-5);
+            padding: 55px 0;
+        }
+    }
+    &__item {
+        min-height: 119px;
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        & img {
+            cursor: pointer;
+            @include transition(.3s);
+        }
+        & img {
+            &:hover {
+                opacity: .8;
+            }
+        }
+        &-wrap {
+            border-top: 1px solid #0D307B;
+            padding: 50px 0 95px;
+            @media #{$xs} {
+                padding: 50px 0 70px;
+            }
+        }
+        &-two {
+            min-height: 99px;
+            & img {
+                opacity: .5;
+                filter: grayscale(1);
+                &:hover {
+                    opacity: 1;
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+    &__title {
+        margin-bottom: 40px;
+        & .title {
+            margin-bottom: 0;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: var(--tg-body-font-family);
+        }
+    }
+}

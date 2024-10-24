@@ -1,0 +1,98 @@
+@use '../utils' as *;
+
+/*=============================
+    29. FAQ
+===============================*/
+.faq {
+    &__area {
+        padding: 100px 0;
+    }
+    &__wrap {
+        & .accordion {
+            &-item {
+                background-color: var(--tg-border-5);
+                border: none;
+                margin-bottom: 5px;
+                @include border-radius(10px);
+                overflow: hidden;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                &:first-of-type .accordion-button {
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
+                &:last-of-type .accordion-button.collapsed {
+                    border-bottom-right-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                }
+            }
+            &-button {
+                padding: 30px 80px 26px 35px;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 1;
+                color: var(--tg-theme-secondary);
+                font-family: var(--tg-heading-font-family);
+                background-color: var(--tg-border-5);
+                border: none;
+                border-radius: 10px 10px 0 0;
+                position: relative;
+                @media #{$md} {
+                    font-size: 22px;
+                }
+                @media #{$xs} {
+                    padding: 30px 50px 26px 20px;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+                &:not(.collapsed) {
+                    color: var(--tg-theme-secondary);
+                    background-color: var(--tg-border-5);
+                    box-shadow: none;
+                }
+                &::after {
+                    content: "\f067";
+                    position: absolute;
+                    right: 35px;
+                    top: 26px;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--tg-color-white-default);
+                    color: var(--tg-theme-primary);
+                    border-radius: 50%;
+                    font-weight: 700;
+                    font-family: var(--tg-icon-font-family);
+                    font-size: 14px;
+                    @media #{$xs} {
+                        right: 12px;
+                    }
+                }
+                &:not(.collapsed)::after {
+                    content: "\f068";
+                    transform: rotate(0);
+                    color: var(--tg-color-white-default);
+                    background: var(--tg-theme-primary);
+                }
+            }
+            &-body {
+                padding: 0 80px 30px 35px;
+                @media #{$md} {
+                    padding: 0 60px 30px 35px;
+                }
+                @media #{$xs} {
+                    padding: 0 30px 30px 20px;
+                }
+                & p {
+                    margin-bottom: 0;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}

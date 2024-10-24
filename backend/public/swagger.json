@@ -1,0 +1,1196 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Warehouse Service Management API",
+        "description": "API for managing warehouse operations.",
+        "contact": {
+            "email": "support@yourcompany.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/warehouse": {
+            "get": {
+                "tags": ["Warehouse"],
+                "summary": "Lấy danh sách tất cả các kho",
+                "description": "Trả về danh sách tất cả các kho trong hệ thống.",
+                "operationId": "getAllWarehouses",
+                "responses": {
+                    "200": {
+                        "description": "Lấy danh sách kho thành công."
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ."
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Warehouse"],
+                "summary": "Tạo một kho mới",
+                "description": "Thêm mới một kho",
+                "operationId": "addWarehouse",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreWarehouse"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Kho được tạo thành công"
+                    },
+                    "400": {
+                        "description": "Dữ liệu đầu vào không hợp lệ"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse/{id}": {
+            "get": {
+                "tags": ["Warehouse"],
+                "summary": "Lấy kho theo ID",
+                "operationId": "getOneWarehouse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của kho",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lấy thành công kho"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy kho với ID"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Warehouse"],
+                "summary": "Cập nhật thông tin kho",
+                "description": "Cập nhật thông tin của kho bằng ID",
+                "operationId": "fac7e01ea90f52d4534c5f028f7efa15",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của kho cần cập nhật",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "code",
+                                    "name",
+                                    "address",
+                                    "city_code",
+                                    "manager_name",
+                                    "seq",
+                                    "is_active",
+                                    "created_by",
+                                    "updated_by"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "type": "string",
+                                        "example": "WH-HCM1"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Kho A"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "123 Đường ABC, Example City"
+                                    },
+                                    "city_code": {
+                                        "type": "string",
+                                        "example": "HCM"
+                                    },
+                                    "manager_name": {
+                                        "type": "string",
+                                        "example": "Nguyễn Văn Đức Móp"
+                                    },
+                                    "seq": {
+                                        "type": "integer",
+                                        "example": null
+                                    },
+                                    "warehouse_type": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "is_active": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    },
+                                    "created_by": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "updated_by": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cập nhật kho thành công"
+                    },
+                    "400": {
+                        "description": "Yêu cầu không hợp lệ"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy kho với ID"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Warehouse"],
+                "summary": "Xóa kho",
+                "description": "Xóa một kho theo ID",
+                "operationId": "deleteWarehouse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của kho cần xóa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Xóa kho thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy kho với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa kho"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-detail": {
+            "get": {
+                "tags": ["WarehouseDetail"],
+                "summary": "Lấy danh sách chi tiết của kho",
+                "description": "Trả về danh sách tất cả các chi tiết của một kho trong hệ thống.",
+                "operationId": "getAllWarehouseDetail",
+                "responses": {
+                    "200": {
+                        "description": "Lấy danh sách chi tiết kho thành công."
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ."
+                    }
+                }
+            },
+            "post": {
+                "tags": ["WarehouseDetail"],
+                "summary": "Tạo một chi tiết kho mới",
+                "description": "Thêm mới một chi tiết kho",
+                "operationId": "addWarehouseDetail",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "warehouse_id",
+                                    "area",
+                                    "capacity",
+                                    "available",
+                                    "warehouse_type",
+                                    "is_shared",
+                                    "created_by",
+                                    "updated_by"
+                                ],
+                                "properties": {
+                                    "warehouse_id": {
+                                        "description": "ID của kho mà chi tiết thuộc về",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "area": {
+                                        "description": "Diện tích kho (m2)",
+                                        "type": "number",
+                                        "format": "double",
+                                        "example": 100
+                                    },
+                                    "capacity": {
+                                        "description": "Sức chứa của kho",
+                                        "type": "integer",
+                                        "example": 200
+                                    },
+                                    "available": {
+                                        "description": "Khả dụng kho hiện tại",
+                                        "type": "integer",
+                                        "example": 150
+                                    },
+                                    "description": {
+                                        "description": "Mô tả chi tiết về kho",
+                                        "type": "string",
+                                        "example": "Kho chứa hàng hóa"
+                                    },
+                                    "warehouse_type": {
+                                        "description": "Loại kho",
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "is_shared": {
+                                        "description": "Cho biết kho có được chia sẻ hay không",
+                                        "type": "boolean",
+                                        "example": 0
+                                    },
+                                    "allowed_items": {
+                                        "description": "Các mặt hàng được phép trong kho",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "example": ["item1", "item2"]
+                                    },
+                                    "created_by": {
+                                        "description": "Người tạo chi tiết kho",
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "updated_by": {
+                                        "description": "Người cập nhật chi tiết kho",
+                                        "type": "string",
+                                        "example": "Admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Chi tiết kho được tạo thành công"
+                    },
+                    "400": {
+                        "description": "Dữ liệu đầu vào không hợp lệ"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-detail/{id}": {
+            "get": {
+                "tags": ["WarehouseDetail"],
+                "summary": "Lấy chi tiết kho theo ID",
+                "operationId": "getOneWarehouseDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của chi tiết kho",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lấy thành công chi tiết kho"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy chi tiết kho với ID"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["WarehouseDetail"],
+                "summary": "Cập nhật thông tin chi tiết kho",
+                "description": "Cập nhật thông tin chi tiết của kho bằng ID",
+                "operationId": "e7b183aaa6c89a7f589c7a8765851165",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của chi tiết kho cần cập nhật",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "warehouse_id",
+                                    "area",
+                                    "capacity",
+                                    "available",
+                                    "warehouse_type",
+                                    "is_shared",
+                                    "created_by",
+                                    "updated_by"
+                                ],
+                                "properties": {
+                                    "warehouse_id": {
+                                        "description": "ID của kho mà chi tiết thuộc về",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "area": {
+                                        "description": "Diện tích kho (m2)",
+                                        "type": "number",
+                                        "format": "double",
+                                        "example": 100
+                                    },
+                                    "capacity": {
+                                        "description": "Sức chứa của kho",
+                                        "type": "integer",
+                                        "example": 200
+                                    },
+                                    "available": {
+                                        "description": "Khả dụng kho hiện tại",
+                                        "type": "integer",
+                                        "example": 150
+                                    },
+                                    "description": {
+                                        "description": "Mô tả chi tiết về kho",
+                                        "type": "string",
+                                        "example": "Kho chứa hàng hóa"
+                                    },
+                                    "warehouse_type": {
+                                        "description": "Loại kho",
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "is_shared": {
+                                        "description": "Cho biết kho có được chia sẻ hay không",
+                                        "type": "boolean",
+                                        "example": 0
+                                    },
+                                    "allowed_items": {
+                                        "description": "Các mặt hàng được phép trong kho",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "example": ["item1", "item2"]
+                                    },
+                                    "created_by": {
+                                        "description": "Người tạo chi tiết kho",
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "updated_by": {
+                                        "description": "Người cập nhật chi tiết kho",
+                                        "type": "string",
+                                        "example": "Admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cập nhật chi tiết kho thành công"
+                    },
+                    "400": {
+                        "description": "Yêu cầu không hợp lệ"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy chi tiết kho với ID"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["WarehouseDetail"],
+                "summary": "Xóa chi tiết kho",
+                "description": "Xóa một chi tiết kho theo ID",
+                "operationId": "deleteWarehouseDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của chi tiết kho cần xóa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Xóa chi tiết kho thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy chi tiết kho với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa chi tiết kho"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-inventory": {
+            "get": {
+                "tags": ["WarehouseInventory"],
+                "summary": "Lấy danh sách tất cả các tồn kho",
+                "description": "Trả về danh sách tất cả các tồn kho trong hệ thống kho.",
+                "operationId": "getAllWarehouseInventory",
+                "responses": {
+                    "200": {
+                        "description": "Danh sách tồn kho thành công."
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ."
+                    }
+                }
+            },
+            "post": {
+                "tags": ["WarehouseInventory"],
+                "summary": "Tạo một tồn kho mới",
+                "description": "Thêm mới tồn kho",
+                "operationId": "addWarehouseInventory",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "warehouse_id",
+                                    "company_id",
+                                    "product_id",
+                                    "code",
+                                    "total_quantity",
+                                    "total_price",
+                                    "import_level",
+                                    "status",
+                                    "created_by",
+                                    "updated_by"
+                                ],
+                                "properties": {
+                                    "warehouse_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "company_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "product_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "INV001"
+                                    },
+                                    "total_quantity": {
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "total_price": {
+                                        "type": "number",
+                                        "format": "double",
+                                        "example": 1500.5
+                                    },
+                                    "import_level": {
+                                        "description": "Mức báo động nhập kho",
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Còn hàng",
+                                            "Cần nhập",
+                                            "Hết hàng"
+                                        ],
+                                        "example": "Còn hàng"
+                                    },
+                                    "last_received_date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-10-19 10:00:00"
+                                    },
+                                    "last_sold_date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-10-18 15:00:00"
+                                    },
+                                    "created_by": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "updated_by": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "deleted_by": {
+                                        "type": "string",
+                                        "example": null,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Kho được tạo thành công"
+                    },
+                    "400": {
+                        "description": "Dữ liệu đầu vào không hợp lệ"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-inventory/{id}": {
+            "get": {
+                "tags": ["WarehouseInventory"],
+                "summary": "Lấy tồn kho theo ID",
+                "operationId": "getOneWarehouseInventory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của tồn kho",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lấy thành công tồn kho"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy tồn kho với ID"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["WarehouseInventory"],
+                "summary": "Cập nhật thông tin của tồn kho",
+                "description": "Cập nhật thông tin của tồn kho bằng ID",
+                "operationId": "updateWarehouseInventory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của tồn kho cần cập nhật",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "warehouse_id",
+                                    "company_id",
+                                    "product_id",
+                                    "code",
+                                    "total_quantity",
+                                    "total_price",
+                                    "import_level",
+                                    "status",
+                                    "created_by",
+                                    "updated_by"
+                                ],
+                                "properties": {
+                                    "warehouse_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "company_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "product_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "INV001"
+                                    },
+                                    "total_quantity": {
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "total_price": {
+                                        "type": "number",
+                                        "format": "double",
+                                        "example": 1500.5
+                                    },
+                                    "import_level": {
+                                        "description": "Mức báo động nhập kho",
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Còn hàng",
+                                            "Cần nhập",
+                                            "Hết hàng"
+                                        ],
+                                        "example": "Còn hàng"
+                                    },
+                                    "last_received_date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-10-19 10:00:00"
+                                    },
+                                    "last_sold_date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-10-18 15:00:00"
+                                    },
+                                    "created_by": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "updated_by": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "deleted_by": {
+                                        "type": "string",
+                                        "example": null,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cập nhật tồn kho thành công"
+                    },
+                    "400": {
+                        "description": "Yêu cầu không hợp lệ"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy tồn kho với ID"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["WarehouseInventory"],
+                "summary": "Xóa tồn kho",
+                "description": "Xóa một tồn kho theo ID",
+                "operationId": "deleteWarehouseInventory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của tồn kho cần xóa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Xóa tồn kho thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy tồn kho với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa tồn kho"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-inventory-details": {
+            "get": {
+                "tags": ["WarehouseInventoryDetails"],
+                "summary": "Lấy danh sách chi tiết tồn kho",
+                "description": "Trả về danh sách chi tiết tồn kho của một kho.",
+                "operationId": "getAllWarehouseInventoryDetails",
+                "responses": {
+                    "200": {
+                        "description": "Danh sách chi tiết tồn kho thành công."
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ."
+                    }
+                }
+            },
+            "post": {
+                "tags": ["WarehouseInventoryDetails"],
+                "summary": "Tạo một chi tiết tồn kho",
+                "description": "Thêm chi tiết tồn kho",
+                "operationId": "addWarehouseInventoryDetails",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "warehouse_inventory_id",
+                                    "batch_id",
+                                    "price",
+                                    "quantity_system",
+                                    "quantity_real",
+                                    "deviant",
+                                    "action",
+                                    "date",
+                                    "created_by"
+                                ],
+                                "properties": {
+                                    "warehouse_inventory_id": {
+                                        "description": "ID của kho tồn trữ",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "batch_id": {
+                                        "description": "ID lô hàng",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "price": {
+                                        "description": "Giá của sản phẩm",
+                                        "type": "number",
+                                        "format": "double",
+                                        "example": 1000
+                                    },
+                                    "quantity_system": {
+                                        "description": "Số lượng trong hệ thống",
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "quantity_real": {
+                                        "description": "Số lượng thực tế",
+                                        "type": "integer",
+                                        "example": 95
+                                    },
+                                    "deviant": {
+                                        "description": "Số lượng chênh lệch",
+                                        "type": "integer",
+                                        "example": 5
+                                    },
+                                    "notes": {
+                                        "description": "Ghi chú cho sản phẩm",
+                                        "type": "string",
+                                        "example": "Nhập/xuất từ lô A",
+                                        "nullable": true
+                                    },
+                                    "action": {
+                                        "description": "Hành động nhập hay xuất kho",
+                                        "type": "string",
+                                        "enum": ["Nhập", "Xuất"],
+                                        "example": "Nhập"
+                                    },
+                                    "status_approved": {
+                                        "description": "Trạng thái phê duyệt",
+                                        "type": "string",
+                                        "default": "PENDING",
+                                        "enum": [
+                                            "PENDING",
+                                            "PROCESS",
+                                            "APPROVED",
+                                            "REJECTED"
+                                        ],
+                                        "example": "PENDING"
+                                    },
+                                    "approve_reason": {
+                                        "description": "Lý do chấp thuận hoặc từ chối",
+                                        "type": "string",
+                                        "example": "Lý do phê duyệt",
+                                        "nullable": true
+                                    },
+                                    "date": {
+                                        "description": "Ngày nhập hoặc xuất kho",
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-10-19"
+                                    },
+                                    "created_by": {
+                                        "description": "Người tạo",
+                                        "type": "string",
+                                        "example": "admin"
+                                    },
+                                    "updated_by": {
+                                        "description": "Người cập nhật",
+                                        "type": "string",
+                                        "example": "admin",
+                                        "nullable": true
+                                    },
+                                    "deleted_by": {
+                                        "description": "Người xóa",
+                                        "type": "string",
+                                        "example": "admin",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Chi tiết tồn kho được tạo thành công"
+                    },
+                    "400": {
+                        "description": "Dữ liệu đầu vào không hợp lệ"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-inventory-details/{id}": {
+            "get": {
+                "tags": ["WarehouseInventoryDetails"],
+                "summary": "Lấy chi tiết tồn kho theo ID",
+                "operationId": "getOneWarehouseInventoryDetails",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của chi tiết tồn kho",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lấy thành công chi tiết tồn kho"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy chi tiết tồn kho với ID"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["WarehouseInventoryDetails"],
+                "summary": "Cập nhật chi tiết tồn kho",
+                "description": "Cập nhật thông tin chi tiết của tồn kho theo ID",
+                "operationId": "updateWarehouseInventoryDetails",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của chi tiết tồn kho cần cập nhật",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "warehouse_inventory_id",
+                                    "batch_id",
+                                    "price",
+                                    "quantity_system",
+                                    "quantity_real",
+                                    "deviant",
+                                    "action",
+                                    "date",
+                                    "created_by"
+                                ],
+                                "properties": {
+                                    "warehouse_inventory_id": {
+                                        "description": "ID của kho tồn trữ",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "batch_id": {
+                                        "description": "ID lô hàng",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "price": {
+                                        "description": "Giá của sản phẩm",
+                                        "type": "number",
+                                        "format": "double",
+                                        "example": 1000
+                                    },
+                                    "quantity_system": {
+                                        "description": "Số lượng trong hệ thống",
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "quantity_real": {
+                                        "description": "Số lượng thực tế",
+                                        "type": "integer",
+                                        "example": 95
+                                    },
+                                    "deviant": {
+                                        "description": "Số lượng chênh lệch",
+                                        "type": "integer",
+                                        "example": 5
+                                    },
+                                    "notes": {
+                                        "description": "Ghi chú cho sản phẩm",
+                                        "type": "string",
+                                        "example": "Nhập/xuất từ lô A",
+                                        "nullable": true
+                                    },
+                                    "action": {
+                                        "description": "Hành động nhập hay xuất kho",
+                                        "type": "string",
+                                        "enum": ["Nhập", "Xuất"],
+                                        "example": "Nhập"
+                                    },
+                                    "status_approved": {
+                                        "description": "Trạng thái phê duyệt",
+                                        "type": "string",
+                                        "default": "PENDING",
+                                        "enum": [
+                                            "PENDING",
+                                            "PROCESS",
+                                            "APPROVED",
+                                            "REJECTED"
+                                        ],
+                                        "example": "PENDING"
+                                    },
+                                    "approve_reason": {
+                                        "description": "Lý do chấp thuận hoặc từ chối",
+                                        "type": "string",
+                                        "example": "Lý do phê duyệt",
+                                        "nullable": true
+                                    },
+                                    "date": {
+                                        "description": "Ngày nhập hoặc xuất kho",
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-10-19"
+                                    },
+                                    "created_by": {
+                                        "description": "Người tạo",
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "updated_by": {
+                                        "description": "Người cập nhật",
+                                        "type": "string",
+                                        "example": "Admin",
+                                        "nullable": true
+                                    },
+                                    "deleted_by": {
+                                        "description": "Người xóa",
+                                        "type": "string",
+                                        "example": "Admin",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cập nhật chi tiết tồn kho thành công"
+                    },
+                    "400": {
+                        "description": "Yêu cầu không hợp lệ"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy chi tiết tồn kho với ID"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["WarehouseInventoryDetails"],
+                "summary": "Xóa chi tiết tồn kho",
+                "description": "Xóa chi tiết một tồn kho theo ID",
+                "operationId": "deleteWarehouseInventoryDetails",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của chi tiết tồn kho cần xóa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Xóa chi tiết tồn kho thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy chi tiết tồn kho với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa chi tiết tồn kho"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-serial": {
+            "get": {
+                "tags": ["Warehouse-Serial"],
+                "summary": "Get all warehouse-serial",
+                "description": "Trả về danh sách tất cả sản phẩm theo serial trong kho.",
+                "operationId": "getAllWarehouseSerial",
+                "responses": {
+                    "200": {
+                        "description": "Danh sách serial thành công."
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ."
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-serials/{id}": {
+            "get": {
+                "tags": ["Warehouse-Serial"],
+                "summary": "Get a warehouse serial",
+                "operationId": "getOneWarehouseSerial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của serial trong kho",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Serial lấy thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy serial trong kho"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ"
+                    }
+                }
+            }
+        },
+        "/api/auth/warehouse-serial/{id}": {
+            "delete": {
+                "tags": ["Warehouse-Serial"],
+                "summary": "Delete a warehouse serial",
+                "operationId": "deleteWarehouseSerial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của serial trong kho",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Xóa serial thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy serial trong kho"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Warehouse",
+            "description": "API để quản lý kho"
+        },
+        {
+            "name": "WarehouseDetail",
+            "description": "WarehouseDetail"
+        },
+        {
+            "name": "WarehouseInventory",
+            "description": "WarehouseInventory"
+        },
+        {
+            "name": "WarehouseInventoryDetails",
+            "description": "WarehouseInventoryDetails"
+        },
+        {
+            "name": "Warehouse-Serial",
+            "description": "Warehouse-Serial"
+        }
+    ]
+}

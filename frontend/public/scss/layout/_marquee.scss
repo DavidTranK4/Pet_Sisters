@@ -1,0 +1,51 @@
+@use '../utils' as *;
+
+/*=============================
+	27. Marquee
+===============================*/
+.marquee {
+    &__area {
+        background: var(--tg-theme-secondary);
+        overflow: hidden;
+        padding: 36px 0 30px;
+    }
+    &__wrap {
+        @include flexbox();
+        align-items: center;
+        &:hover {
+            & .marquee__box {
+                animation-play-state: paused;
+            }
+        }
+    }
+    &__box {
+        @include flexbox();
+        align-items: center;
+        flex-wrap: nowrap;
+        width: fit-content;
+        animation: marquee 100s linear infinite;
+        & a {
+            font-weight: 500;
+            font-size: 24px;
+            white-space: nowrap;
+            line-height: 1;
+            position: relative;
+            margin-right: 54px;
+            text-transform: uppercase;
+            font-family: var(--tg-heading-font-family);
+            @include flexbox();
+            gap: 20px;
+            align-items: center;
+            color: var(--tg-color-white-default);
+            @media #{$xs} {
+                font-size: 22px;
+            }
+            & img {
+                @include transform(translateY(-4px));
+            }
+            &:hover {
+                color: var(--tg-theme-primary);
+            }
+        }
+    }
+}

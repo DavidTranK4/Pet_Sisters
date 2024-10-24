@@ -1,0 +1,150 @@
+@use '../utils' as *;
+
+/*=============================
+	26. Features
+===============================*/
+.features {
+    &__area {
+        padding: 25px 0 15px;
+        &-two {
+            padding: 60px 0 30px;
+        }
+    }
+    &__item {
+        @include flexbox();
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        @media #{$sm} {
+            gap: 15px;
+        }
+        &:hover {
+            & .features__icon {
+                @include transform(rotateY(180deg));
+            }
+        }
+        &-two {
+            position: relative;
+            margin-bottom: 30px;
+        }
+    }
+    &__thumb {
+        @include border-radius(20px);
+        overflow: hidden;
+        & img {
+            width: 100%;
+            min-height: 230px;
+            object-fit: cover;
+        }
+    }
+    &__icon {
+        @include transition(.3s);
+        & svg {
+            color: var(--tg-theme-primary);
+        }
+    }
+    &__content {
+        & .title {
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1;
+        }
+        & p {
+            margin-bottom: 0;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        &-two {
+            position: absolute;
+            right: 60px;
+            top: 40px;
+            @media #{$lg} {
+                right: 20px;
+            }
+            & .title {
+                margin-bottom: 5px;
+                color: var(--tg-color-white-default);
+                line-height: 1;
+                font-size: 55px;
+                @include flexbox();
+                align-items: flex-start;
+                @media #{$lg} {
+                    font-size: 45px;
+                }
+                @media #{$md} {
+                    font-size: 35px;
+                }
+                @media #{$sm} {
+                    font-size: 35px;
+                }
+                & span {
+                    font-size: 30px;
+                    margin-left: 5px;
+                    @media #{$md} {
+                        font-size: 25px;
+                    }
+                }
+            }
+            & strong {
+                display: block;
+                font-size: 35px;
+                line-height: 1;
+                font-family: var(--tg-heading-font-family);
+                color: var(--tg-color-white-default);
+                margin-bottom: 15px;
+                @media #{$lg} {
+                    font-size: 30px;
+                }
+                @media #{$md} {
+                    font-size: 25px;
+                }
+                @media #{$sm} {
+                    font-size: 33px;
+                }
+            }
+        }
+        &-three {
+            & .title {
+                margin-bottom: 5px;
+                font-size: 40px;
+                @media #{$lg} {
+                    font-size: 35px;
+                }
+                @media #{$md} {
+                    font-size: 30px;
+                }
+                @media #{$sm} {
+                    font-size: 35px;
+                }
+            }
+            & strong {
+                font-size: 40px;
+                @media #{$lg} {
+                    font-size: 35px;
+                }
+                @media #{$md} {
+                    font-size: 30px;
+                }
+                @media #{$sm} {
+                    font-size: 35px;
+                }
+            }
+        }
+    }
+}
+.btn.shop-btn {
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(219, 128, 144, 0.5);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(219, 128, 144, 0.5);
+    -ms-box-shadow: 0px 3px 5px 0px rgba(219, 128, 144, 0.5);
+    -o-box-shadow: 0px 3px 5px 0px rgba(219, 128, 144, 0.5);
+    box-shadow: 0px 3px 5px 0px rgba(219, 128, 144, 0.5);
+    background: var(--tg-color-white-default);
+    color: var(--tg-theme-secondary);
+    padding: 17px 22px 13px 22px;
+    font-size: 16px;
+    &:hover {
+        color: var(--tg-color-white-default);
+    }
+}

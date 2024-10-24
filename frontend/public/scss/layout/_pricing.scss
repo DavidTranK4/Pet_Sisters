@@ -1,0 +1,91 @@
+@use '../utils' as *;
+
+/*=============================
+	22. Pricing
+===============================*/
+.pricing {
+    &__area {
+        padding: 100px 0 70px;
+    }
+    &__box {
+        background: var(--tg-border-5);
+        padding: 35px 40px 50px;
+        @include border-radius(12px);
+        margin-bottom: 30px;
+        @media #{$lg} {
+            padding: 30px 30px 40px;
+        }
+        @media #{$sm} {
+            padding: 35px 40px 50px;
+        }
+    }
+    &__top {
+        & .plan {
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1;
+        }
+        & p {
+            margin-bottom: 30px;
+            text-transform: capitalize;
+        }
+    }
+    &__price {
+        & .price {
+            margin-bottom: 28px;
+            line-height: .8;
+            font-size: 48px;
+            color: var(--tg-theme-primary);
+            @include flexbox();
+            align-items: flex-start;
+            & span {
+                font-size: 24px;
+                font-weight: 600;
+                margin-right: 2px;
+                margin-top: 2px;
+            }
+            & strong {
+                font-size: 16px;
+                font-weight: 500;
+                color: var(--tg-body-color);
+                margin-left: 5px;
+                margin-top: auto;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__list {
+        margin-bottom: 30px;
+        & .list-wrap {
+            & li {
+                @include flexbox();
+                align-items: flex-start;
+                line-height: 1.4;
+                gap: 9px;
+                font-size: 16px;
+                margin-bottom: 20px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                & .icon {
+                    width: 20px;
+                    height: 20px;
+                    flex: 0 0 auto;
+                    @include flexbox();
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--tg-body-color);
+                    color: var(--tg-color-white-default);
+                    line-height: 0;
+                    @include border-radius(50%);
+                    transform: translateY(2px);
+                    & svg {
+                        width: 12px;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

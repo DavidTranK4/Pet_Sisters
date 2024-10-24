@@ -1,0 +1,163 @@
+@use '../utils' as *;
+
+/*=============================
+    14. Slider
+===============================*/
+.slider {
+    &__single {
+        position: relative;
+        min-height: 530px;
+        @include flexbox();
+        align-items: center;
+        padding: 100px 75px;
+        cursor: grab;
+        margin-bottom: 20px;
+        @media #{$lg} {
+            padding: 100px 40px;
+        }
+        @media #{$md} {
+            min-height: 440px;
+        }
+        @media #{$xs} {
+            padding: 80px 30px;
+        }
+    }
+    &__bg {
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        @include border-radius(20px);
+    }
+    &__content {
+        @media #{$xs} {
+            text-align: center;
+        }
+        & .title {
+            margin-bottom: 10px;
+            font-size: 50px;
+            line-height: 1.1;
+            @media #{$lg} {
+                font-size: 45px;
+            }
+            @media #{$md} {
+                font-size: 40px;
+            }
+            @media #{$xs} {
+                font-size: 35px;
+            }
+            @media #{$sm} {
+                font-size: 40px;
+            }
+            & br {
+                @media #{$xs} {
+                    display: none;
+                }
+            }
+        }
+        & .sub-title {
+            margin-bottom: 30px;
+            font-size: 20px;
+            @media #{$md} {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.discount__shape {
+    position: absolute;
+    right: 24%;
+    bottom: 33%;
+    padding: 39px 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media #{$lg} {
+        right: 16%;
+        padding: 35px 33px;
+    }
+    @media #{$xs} {
+        right: 11%;
+        padding: 17px 20px;
+        bottom: auto;
+        top: 7%;
+    }
+    & svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+    & .title {
+        font-size: 50px;
+        color: var(--tg-color-white-default);
+        margin-bottom: 0;
+        text-align: center;
+        line-height: 1;
+        @media #{$lg} {
+            font-size: 40px;
+        }
+        @media #{$xs} {
+            font-size: 20px;
+        }
+        & span {
+            font-size: 20px;
+            display: block;
+            @media #{$xs} {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.slider__single {
+    &.swiper-slide-active {
+        & .slider__content {
+            & > .title {
+                -webkit-animation-delay: .3s;
+                animation-delay: .3s;
+                -webkit-animation-duration: .8s;
+                animation-duration: .8s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                -webkit-animation-name: fadeInUp2;
+                animation-name: fadeInUp2;
+            }
+            & .sub-title {
+                -webkit-animation-delay: .6s;
+                animation-delay: .6s;
+                -webkit-animation-duration: .8s;
+                animation-duration: .8s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                -webkit-animation-name: fadeInUp2;
+                animation-name: fadeInUp2;
+            }
+            & .btn {
+                -webkit-animation-delay: .9s;
+                animation-delay: .9s;
+                -webkit-animation-duration: .8s;
+                animation-duration: .8s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                -webkit-animation-name: fadeInUp2;
+                animation-name: fadeInUp2;
+            }
+        }
+        & .discount__shape {
+            -webkit-animation-delay: 1.2s;
+            animation-delay: 1.2s;
+            -webkit-animation-duration: .8s;
+            animation-duration: .8s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: zoomIn;
+            animation-name: zoomIn;
+        }
+    }
+}

@@ -1,0 +1,568 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Warehouse Service Management API",
+        "description": "API for managing warehouse operations.",
+        "contact": {
+            "email": "support@yourcompany.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/category": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Lấy danh sách tất cả các danh mục",
+                "description": "Trả về danh sách tất cả các danh mục trong hệ thống.",
+                "operationId": "getAllCategories",
+                "responses": {
+                    "200": {
+                        "description": "Lấy danh sách danh mục thành công."
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Tạo một danh mục mới",
+                "description": "Thêm mới một danh mục",
+                "operationId": "addCategory",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category_name",
+                                    "category_type"
+                                ],
+                                "properties": {
+                                    "category_name": {
+                                        "type": "string",
+                                        "example": "Danh mục A"
+                                    },
+                                    "category_type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "product",
+                                            "service",
+                                            "post"
+                                        ],
+                                        "example": "product"
+                                    },
+                                    "slugs": {
+                                        "type": "string",
+                                        "example": "danh-muc-a"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Mô tả về danh mục A"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Danh mục được tạo thành công"
+                    },
+                    "400": {
+                        "description": "Dữ liệu đầu vào không hợp lệ"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ nội bộ"
+                    }
+                }
+            }
+        },
+        "/api/auth/category/{id}": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Lấy danh mục theo ID",
+                "operationId": "getOneCategory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của danh mục",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lấy thành công danh mục"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy danh mục với ID"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Cập nhật thông tin danh mục",
+                "description": "Cập nhật thông tin của danh mục bằng ID",
+                "operationId": "a137bc8ac21cffdf6c1408c8c040000b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của danh mục cần cập nhật",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category_name",
+                                    "category_type"
+                                ],
+                                "properties": {
+                                    "category_name": {
+                                        "type": "string",
+                                        "example": "Danh mục A"
+                                    },
+                                    "category_type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "product",
+                                            "service",
+                                            "post"
+                                        ],
+                                        "example": "product"
+                                    },
+                                    "slugs": {
+                                        "type": "string",
+                                        "example": "danh-muc-a"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Mô tả về danh mục A"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cập nhật danh mục thành công"
+                    },
+                    "400": {
+                        "description": "Yêu cầu không hợp lệ"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy danh mục với ID"
+                    },
+                    "500": {
+                        "description": "Lỗi máy chủ"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Xóa danh mục",
+                "description": "Xóa một danh mục theo ID",
+                "operationId": "deleteCategory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của danh mục cần xóa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Xóa danh mục thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy danh mục với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa danh mục"
+                    }
+                }
+            }
+        },
+        "/api/auth/category/{id}/force": {
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Xóa vĩnh viễn danh mục",
+                "description": "Xóa một danh mục theo ID một cách vĩnh viễn",
+                "operationId": "forceDeleteCategory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của danh mục cần xóa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Xóa danh mục thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy danh mục với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa danh mục"
+                    }
+                }
+            }
+        },
+        "/api/auth/product": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Lấy danh sách sản phẩm",
+                "description": "Trả về danh sách tất cả sản phẩm",
+                "operationId": "getProducts",
+                "responses": {
+                    "200": {
+                        "description": "Danh sách sản phẩm"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình lấy danh sách sản phẩm"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Tạo mới sản phẩm",
+                "description": "Thêm một sản phẩm mới",
+                "operationId": "createProduct",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category_id",
+                                    "product_sku",
+                                    "product_name",
+                                    "price",
+                                    "quantity_in_stock",
+                                    "reorder_level"
+                                ],
+                                "properties": {
+                                    "category_id": {
+                                        "description": "ID danh mục sản phẩm",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "product_sku": {
+                                        "description": "Mã sản phẩm",
+                                        "type": "string",
+                                        "example": "DOGFOOD001"
+                                    },
+                                    "product_name": {
+                                        "description": "Tên sản phẩm",
+                                        "type": "string",
+                                        "example": "Thức ăn cho chó Royal Canin"
+                                    },
+                                    "image_url": {
+                                        "description": "URL hình ảnh",
+                                        "type": "string",
+                                        "example": "https://example.com/images/dog_food_royal_canin.jpg"
+                                    },
+                                    "slugs": {
+                                        "description": "Slugs cho sản phẩm",
+                                        "type": "string",
+                                        "example": "thuc-an-cho-royal-canin"
+                                    },
+                                    "price": {
+                                        "description": "Giá sản phẩm",
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 500000
+                                    },
+                                    "quantity_in_stock": {
+                                        "description": "Số lượng sản phẩm trong kho",
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "reorder_level": {
+                                        "description": "Mức đặt hàng lại",
+                                        "type": "integer",
+                                        "example": 20
+                                    },
+                                    "description": {
+                                        "description": "Mô tả sản phẩm",
+                                        "type": "string",
+                                        "example": "Thức ăn cho chó Royal Canin chuyên biệt cho từng giống chó."
+                                    },
+                                    "tags": {
+                                        "description": "Thẻ sản phẩm",
+                                        "type": "string",
+                                        "example": "thức ăn, chó, Royal Canin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Sản phẩm đã được tạo"
+                    },
+                    "400": {
+                        "description": "Dữ liệu không hợp lệ"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình tạo sản phẩm"
+                    }
+                }
+            }
+        },
+        "/api/auth/product/{id}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Lấy thông tin sản phẩm theo ID",
+                "description": "Trả về thông tin chi tiết của một sản phẩm",
+                "operationId": "getProductById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của sản phẩm",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Thông tin sản phẩm"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy sản phẩm với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình lấy thông tin sản phẩm"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Cập nhật sản phẩm",
+                "description": "Cập nhật thông tin của một sản phẩm",
+                "operationId": "updateProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của sản phẩm cần cập nhật",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category_id",
+                                    "product_sku",
+                                    "product_name",
+                                    "price",
+                                    "quantity_in_stock",
+                                    "reorder_level"
+                                ],
+                                "properties": {
+                                    "category_id": {
+                                        "description": "ID danh mục sản phẩm",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "product_sku": {
+                                        "description": "Mã sản phẩm",
+                                        "type": "string",
+                                        "example": "DOGFOOD001"
+                                    },
+                                    "product_name": {
+                                        "description": "Tên sản phẩm",
+                                        "type": "string",
+                                        "example": "Thức ăn cho chó Royal Canin"
+                                    },
+                                    "image_url": {
+                                        "description": "URL hình ảnh",
+                                        "type": "string",
+                                        "example": "https://example.com/images/dog_food_royal_canin.jpg"
+                                    },
+                                    "slugs": {
+                                        "description": "Slugs cho sản phẩm",
+                                        "type": "string",
+                                        "example": "thuc-an-cho-royal-canin"
+                                    },
+                                    "price": {
+                                        "description": "Giá sản phẩm",
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 500000
+                                    },
+                                    "quantity_in_stock": {
+                                        "description": "Số lượng sản phẩm trong kho",
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "reorder_level": {
+                                        "description": "Mức đặt hàng lại",
+                                        "type": "integer",
+                                        "example": 20
+                                    },
+                                    "description": {
+                                        "description": "Mô tả sản phẩm",
+                                        "type": "string",
+                                        "example": "Thức ăn cho chó Royal Canin chuyên biệt cho từng giống chó."
+                                    },
+                                    "tags": {
+                                        "description": "Thẻ sản phẩm",
+                                        "type": "string",
+                                        "example": "thức ăn, chó, Royal Canin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sản phẩm đã được cập nhật thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy sản phẩm với ID cung cấp"
+                    },
+                    "400": {
+                        "description": "Dữ liệu không hợp lệ"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình cập nhật sản phẩm"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Xóa sản phẩm",
+                "description": "Xóa một sản phẩm theo ID",
+                "operationId": "deleteProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của sản phẩm",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sản phẩm đã được xóa"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy sản phẩm với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa sản phẩm"
+                    }
+                }
+            }
+        },
+        "/api/auth/product/{id}/force": {
+            "delete": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Xóa vĩnh viễn sản phẩm",
+                "description": "Xóa một sản phẩm theo ID một cách vĩnh viễn",
+                "operationId": "forceDeleteProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID của sản phẩm cần xóa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Xóa sản phẩm thành công"
+                    },
+                    "404": {
+                        "description": "Không tìm thấy sản phẩm với ID"
+                    },
+                    "500": {
+                        "description": "Đã xảy ra lỗi trong quá trình xóa sản phẩm"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Category",
+            "description": "API để quản lý danh mục"
+        },
+        {
+            "name": "Product",
+            "description": "API để quản lý sản phẩm"
+        }
+    ]
+}

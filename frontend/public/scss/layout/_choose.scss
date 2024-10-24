@@ -1,0 +1,68 @@
+@use '../utils' as *;
+
+/*=============================
+    18. Choose
+===============================*/
+.choose {
+    &__area {
+        background: var(--tg-color-gray-4);
+        padding: 130px 0;
+        position: relative;
+        z-index: 1;
+        @media #{$xs} {
+            padding: 100px 0;
+        }
+    }
+    &__img {
+        @media #{$md} {
+            margin-bottom: 50px;
+        }
+        @media #{$xs} {
+            text-align: center;
+        }
+    }
+    &__content {
+        margin-left: 40px;
+        @media #{$lg} {
+            margin-left: 0;
+        }
+        & p {
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+    }
+    &__shape-wrap {
+        & img {
+            position: absolute;
+            z-index: -1;
+            &:nth-child(1) {
+                right: 7%;
+                top: 27%;
+                max-width: 107px;
+                @media #{$xl} {
+                    right: 3%;
+                    top: 12%;
+                    max-width: 90px;
+                }
+                @media #{$lg} {
+                    top: 7%;
+                }
+                @media #{$xs} {
+                    top: 4%;
+                    max-width: 70px;
+                }
+            }
+            &:nth-child(2) {
+                bottom: 0;
+                left: 3%;
+                max-width: 189px;
+                @media #{$xl} {
+                    max-width: 150px;
+                }
+                @media #{$xs} {
+                    max-width: 100px;
+                }
+            }
+        }
+    }
+}

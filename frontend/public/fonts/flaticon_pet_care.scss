@@ -1,0 +1,213 @@
+$flaticon_pet_care-font: "flaticon_pet_care";
+
+@font-face {
+    font-family: $flaticon_pet_care-font;
+    src: url("./flaticon_pet_care.ttf?3fda591c098ddc93be547fa57359e5e5") format("truetype"),
+url("./flaticon_pet_care.woff?3fda591c098ddc93be547fa57359e5e5") format("woff"),
+url("./flaticon_pet_care.woff2?3fda591c098ddc93be547fa57359e5e5") format("woff2"),
+url("./flaticon_pet_care.eot?3fda591c098ddc93be547fa57359e5e5#iefix") format("embedded-opentype"),
+url("./flaticon_pet_care.svg?3fda591c098ddc93be547fa57359e5e5#flaticon_pet_care") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_pet_care !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon_pet_care-map: (
+    "dog": "\f101",
+    "cat-face": "\f102",
+    "paw": "\f103",
+    "animals": "\f104",
+    "beauty-saloon": "\f105",
+    "vaccine": "\f106",
+    "spay": "\f107",
+    "vet": "\f108",
+    "loupe": "\f109",
+    "love": "\f10a",
+    "placeholder": "\f10b",
+    "pin": "\f10c",
+    "message": "\f10d",
+    "mail": "\f10e",
+    "phone": "\f10f",
+    "phone-call": "\f110",
+    "padlock": "\f111",
+    "locked": "\f112",
+    "three-o-clock-clock": "\f113",
+    "arrowhead-up": "\f114",
+    "down": "\f115",
+    "down-arrow": "\f116",
+    "arrow-up": "\f117",
+    "shopping-bag": "\f118",
+    "calendar": "\f119",
+    "calendar-1": "\f11a",
+    "right-arrow": "\f11b",
+    "left": "\f11c",
+    "left-chevron": "\f11d",
+    "right-arrow-angle": "\f11e",
+    "next": "\f11f",
+    "power": "\f120",
+    "bolt": "\f121",
+    "photo": "\f122",
+    "user": "\f123",
+    "profile-user": "\f124",
+    "like": "\f125",
+    "chat": "\f126",
+    "chat-1": "\f127",
+    "image": "\f128",
+    "left-and-right-arrows": "\f129",
+    "exchange": "\f12a",
+    "basket": "\f12b",
+    "shopping": "\f12c",
+    "layout": "\f12d",
+    "list": "\f12e",
+    "plus": "\f12f",
+);
+
+.flaticon-dog:before {
+    content: map-get($flaticon_pet_care-map, "dog");
+}
+.flaticon-cat-face:before {
+    content: map-get($flaticon_pet_care-map, "cat-face");
+}
+.flaticon-paw:before {
+    content: map-get($flaticon_pet_care-map, "paw");
+}
+.flaticon-animals:before {
+    content: map-get($flaticon_pet_care-map, "animals");
+}
+.flaticon-beauty-saloon:before {
+    content: map-get($flaticon_pet_care-map, "beauty-saloon");
+}
+.flaticon-vaccine:before {
+    content: map-get($flaticon_pet_care-map, "vaccine");
+}
+.flaticon-spay:before {
+    content: map-get($flaticon_pet_care-map, "spay");
+}
+.flaticon-vet:before {
+    content: map-get($flaticon_pet_care-map, "vet");
+}
+.flaticon-loupe:before {
+    content: map-get($flaticon_pet_care-map, "loupe");
+}
+.flaticon-love:before {
+    content: map-get($flaticon_pet_care-map, "love");
+}
+.flaticon-placeholder:before {
+    content: map-get($flaticon_pet_care-map, "placeholder");
+}
+.flaticon-pin:before {
+    content: map-get($flaticon_pet_care-map, "pin");
+}
+.flaticon-message:before {
+    content: map-get($flaticon_pet_care-map, "message");
+}
+.flaticon-mail:before {
+    content: map-get($flaticon_pet_care-map, "mail");
+}
+.flaticon-phone:before {
+    content: map-get($flaticon_pet_care-map, "phone");
+}
+.flaticon-phone-call:before {
+    content: map-get($flaticon_pet_care-map, "phone-call");
+}
+.flaticon-padlock:before {
+    content: map-get($flaticon_pet_care-map, "padlock");
+}
+.flaticon-locked:before {
+    content: map-get($flaticon_pet_care-map, "locked");
+}
+.flaticon-three-o-clock-clock:before {
+    content: map-get($flaticon_pet_care-map, "three-o-clock-clock");
+}
+.flaticon-arrowhead-up:before {
+    content: map-get($flaticon_pet_care-map, "arrowhead-up");
+}
+.flaticon-down:before {
+    content: map-get($flaticon_pet_care-map, "down");
+}
+.flaticon-down-arrow:before {
+    content: map-get($flaticon_pet_care-map, "down-arrow");
+}
+.flaticon-arrow-up:before {
+    content: map-get($flaticon_pet_care-map, "arrow-up");
+}
+.flaticon-shopping-bag:before {
+    content: map-get($flaticon_pet_care-map, "shopping-bag");
+}
+.flaticon-calendar:before {
+    content: map-get($flaticon_pet_care-map, "calendar");
+}
+.flaticon-calendar-1:before {
+    content: map-get($flaticon_pet_care-map, "calendar-1");
+}
+.flaticon-right-arrow:before {
+    content: map-get($flaticon_pet_care-map, "right-arrow");
+}
+.flaticon-left:before {
+    content: map-get($flaticon_pet_care-map, "left");
+}
+.flaticon-left-chevron:before {
+    content: map-get($flaticon_pet_care-map, "left-chevron");
+}
+.flaticon-right-arrow-angle:before {
+    content: map-get($flaticon_pet_care-map, "right-arrow-angle");
+}
+.flaticon-next:before {
+    content: map-get($flaticon_pet_care-map, "next");
+}
+.flaticon-power:before {
+    content: map-get($flaticon_pet_care-map, "power");
+}
+.flaticon-bolt:before {
+    content: map-get($flaticon_pet_care-map, "bolt");
+}
+.flaticon-photo:before {
+    content: map-get($flaticon_pet_care-map, "photo");
+}
+.flaticon-user:before {
+    content: map-get($flaticon_pet_care-map, "user");
+}
+.flaticon-profile-user:before {
+    content: map-get($flaticon_pet_care-map, "profile-user");
+}
+.flaticon-like:before {
+    content: map-get($flaticon_pet_care-map, "like");
+}
+.flaticon-chat:before {
+    content: map-get($flaticon_pet_care-map, "chat");
+}
+.flaticon-chat-1:before {
+    content: map-get($flaticon_pet_care-map, "chat-1");
+}
+.flaticon-image:before {
+    content: map-get($flaticon_pet_care-map, "image");
+}
+.flaticon-left-and-right-arrows:before {
+    content: map-get($flaticon_pet_care-map, "left-and-right-arrows");
+}
+.flaticon-exchange:before {
+    content: map-get($flaticon_pet_care-map, "exchange");
+}
+.flaticon-basket:before {
+    content: map-get($flaticon_pet_care-map, "basket");
+}
+.flaticon-shopping:before {
+    content: map-get($flaticon_pet_care-map, "shopping");
+}
+.flaticon-layout:before {
+    content: map-get($flaticon_pet_care-map, "layout");
+}
+.flaticon-list:before {
+    content: map-get($flaticon_pet_care-map, "list");
+}
+.flaticon-plus:before {
+    content: map-get($flaticon_pet_care-map, "plus");
+}

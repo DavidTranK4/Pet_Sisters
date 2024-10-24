@@ -1,0 +1,249 @@
+@use '../utils' as *;
+
+/*=============================
+    31. Registration
+===============================*/
+.registration {
+    &__area {
+        &-two {
+            padding: 130px 0;
+            position: relative;
+            @media #{$xs} {
+                padding: 100px 0;
+            }
+        }
+    }
+    &__inner-wrap {
+        background: var(--tg-theme-secondary);
+        @include border-radius(59px 153px 45px 150px);
+        padding: 70px 130px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        margin-top: -185px;
+        @media #{$xl} {
+            padding: 70px 90px;
+        }
+        @media #{$lg} {
+            padding: 50px 60px;
+        }
+        @media #{$md} {
+            @include border-radius(40px 100px 30px 100px);
+        }
+        @media #{$md} {
+            @include border-radius(40px 60px 30px 60px);
+            padding: 40px 30px;
+        }
+        & .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--tg-color-white-default);
+            text-transform: capitalize;
+            font-size: 36px;
+            @media #{$xs} {
+                font-size: 30px;
+            }
+        }
+        & .shape {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+        & .form-grp {
+            margin-bottom: 15px;
+            position: relative;
+            & label {
+                display: block;
+                color: #C8D4EF;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1;
+                margin-bottom: 10px;
+            }
+            & input {
+                width: 100%;
+                border: none;
+                background: #113179;
+                @include border-radius(6px);
+                padding: 14px 20px;
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--tg-color-white-default);
+                height: 50px;
+                &::placeholder {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #5E76AC;
+                }
+                &[type="date"] {
+                    color: #5E76AC;
+                    font-weight: 600;
+                    &::-webkit-calendar-picker-indicator {
+                        filter: invert(100%);
+                        font-size: 20px;
+                    }
+                }
+            }
+            & i {
+                position: absolute;
+                right: 15px;
+                bottom: 14px;
+                font-size: 20px;
+                line-height: 0;
+                color: var(--tg-color-white-default);
+            }
+            &.select-grp {
+                position: relative;
+                & select {
+                    background-color: #113179;
+                    border: none;
+                    color: #5E76AC;
+                    font-weight: 600;
+                    font-size: 14px;
+                    text-transform: capitalize;
+                    border-radius: 6px;
+                    outline: none;
+                    padding: 14px 50px 14px 20px;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    line-height: 1.2;
+                    height: 50px;
+                    cursor: pointer;
+                }
+                &::after {
+                    content: "\f116";
+                    position: absolute;
+                    bottom: 14px;
+                    font-family: "flaticon_pet_care";
+                    font-weight: 700;
+                    right: 20px;
+                    font-size: 20px;
+                    color: var(--tg-color-white-default);
+                    line-height: 1;
+                }
+            }
+        }
+        & .submit__btn {
+            & .btn {
+                &::before {
+                    background: var(--tg-color-white-default);
+                }
+                &:hover {
+                    color: var(--tg-theme-primary);
+                }
+            }
+        }
+        &-two {
+            position: relative;
+        }
+    }
+    &__form {
+        background: var(--tg-border-5);
+        border: 1px solid var(--tg-border-6);
+        @include border-radius(12px);
+        padding: 70px 80px 70px;
+        @media #{$lg} {
+            padding: 50px 40px 50px;
+        }
+        @media #{$xs} {
+            padding: 30px 25px 30px;
+        }
+        @media #{$sm} {
+            padding: 35px 30px 35px;
+        }
+        & .title {
+            margin-bottom: 5px;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1;
+            @media #{$xs} {
+                font-size: 32px;
+            }
+        }
+        & span {
+            display: block;
+            margin-bottom: 20px;
+        }
+        & .form-grp {
+            margin-bottom: 18px;
+            & textarea,
+            & input {
+                width: 100%;
+                border: 1px solid #E1E4E7;
+                background: var(--tg-color-white-default);
+                @include border-radius(100px);
+                font-size: 15px;
+                font-weight: 400;
+                color: var(--tg-theme-secondary);
+                padding: 12px 20px;
+                height: 50px;
+                display: block;
+                &::placeholder {
+                    color: #8793AB;
+                    font-size: 15px;
+                    font-weight: 400;
+                }
+                &[type=date] {
+                    font-weight: 400;
+                    color: #8793AB;
+                    &::-webkit-calendar-picker-indicator {
+                        font-size: 20px;
+                    }
+                }
+            }
+            & textarea {
+                min-height: 100px;
+                max-height: 100px;
+                padding: 15px 20px 12px 30px;
+            }
+            &.select-grp {
+                position: relative;
+                & select {
+                    background-color: var(--tg-color-white-default);
+                    border: 1px solid #E1E4E7;
+                    color: #8793AB;
+                    font-weight: 400;
+                    font-size: 15px;
+                    text-transform: capitalize;
+                    border-radius: 100px;
+                    outline: none;
+                    padding: 14px 50px 14px 20px;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    line-height: 1.2;
+                    height: 50px;
+                    cursor: pointer;
+                }
+                &::after {
+                    content: "\f116";
+                    position: absolute;
+                    bottom: 14px;
+                    font-family: "flaticon_pet_care";
+                    font-weight: 700;
+                    right: 20px;
+                    font-size: 20px;
+                    color: var(--tg-theme-primary);
+                    line-height: 1;
+                }
+            }
+        }
+    }
+    &__img {
+        position: absolute;
+        bottom: 0;
+        right: 3%;
+        z-index: -1;
+        @media #{$lg} {
+            right: 0;
+        }
+        @media #{$md} {
+            display: none;
+        }
+    }
+}

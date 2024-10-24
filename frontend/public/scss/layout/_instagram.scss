@@ -1,0 +1,56 @@
+@use '../utils' as *;
+
+/*=============================
+	23. Instagram
+===============================*/
+.instagram {
+    &__area {
+        padding: 0 0 130px;
+        @media #{$xs} {
+            padding: 0 0 100px;
+        }
+    }
+    &__follow-btn {
+        text-align: center;
+        margin-bottom: 50px;
+        & a {
+            font-size: 18px;
+            text-transform: capitalize;
+            font-weight: 600;
+            font-family: var(--tg-heading-font-family);
+            line-height: 1;
+            @include border-radius(100px);
+            display: inline-block;
+            padding: 14px 25px 10px;
+            border: 1px solid var(--tg-theme-primary);
+            &:hover {
+                background: var(--tg-theme-primary);
+                color: var(--tg-color-white-default);
+            }
+        }
+    }
+    &__item {
+        -webkit-mask-image: url(../img/instagram/instagram_img_mask.svg);
+        mask-image: url(../img/instagram/instagram_img_mask.svg);
+        -webkit-mask-size: 100%;
+        mask-size: 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        height: 206px;
+        width: 220px;
+        margin: 0 auto;
+        @media #{$lg} {
+            height: 192px;
+            width: 205px;
+        }
+        & img {
+            max-width: unset;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+}
